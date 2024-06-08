@@ -1,5 +1,5 @@
 :root {
-  --monospace: Consolas, monospace;
+  --monospace: Barlow,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,PingFang SC,Microsoft YaHei,Source Han Sans SC,Noto Sans CJK SC,WenQuanYi Micro Hei,sans-serif,microsoft uighur;
   --serif: Georgia, serif;
   --sans-serif: Helvetica, Arial, sans-serif;
 }
@@ -432,7 +432,6 @@ button.options:hover {
 }
 
 #options p {
-  font-style: italic;
   font-weight: bold;
   margin: 0.8em 0 0 0;
 }
