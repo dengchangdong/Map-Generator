@@ -12,7 +12,7 @@
       content="Free web app that helps fantasy writers, game masters, and cartographers create and edit fantasy maps"
     />
 
-    <meta property="og:url" content="https://azgaar.github.io/Fantasy-Map-Generator" />
+    <meta property="og:url" content="https://map.editor.im" />
     <meta property="og:title" content="虚拟地图生成器" />
     <meta
       property="og:description"
@@ -21,8 +21,8 @@
     <meta property="og:image" content="images/preview.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content="map.dengchangdong.com" />
-    <meta property="twitter:url" content="https://map.dengchangdong.com" />
+    <meta property="twitter:domain" content="map.editor.im" />
+    <meta property="twitter:url" content="https://map.editor.im" />
     <meta name="twitter:title" content="虚拟地图生成器" />
     <meta
       name="twitter:description"
@@ -436,7 +436,7 @@
             <option value="religions">宗教地图</option>
             <option value="provinces">省份地图</option>
             <option value="biomes">生物群落地图</option>
-            <option value="heightmap">高度图</option>
+            <option value="heightmap">高程图</option>
             <option value="physical">物理地图</option>
             <option value="poi">名胜古迹</option>
             <option value="military">军事地图</option>
@@ -482,7 +482,7 @@
               class="buttonoff"
               onclick="toggleHeight(event)"
             >
-              高度图
+              高程图
             </li>
             <li
               id="toggleBiomes"
@@ -777,7 +777,7 @@
               <option value="emblems">徽章</option>
               <option value="fogging">雾化</option>
               <option value="gridOverlay">网格</option>
-              <option value="terrs">高度图</option>
+              <option value="terrs">高程图</option>
               <option value="ice">冰</option>
               <option value="labels">标签</option>
               <option value="lakes">湖泊</option>
@@ -1616,7 +1616,7 @@
               </td>
             </tr>
 
-            <tr data-tip="选择生成时要使用的模板或预先创建的高度图">
+            <tr data-tip="选择生成时要使用的模板或预先创建的高程图">
               <td>
                 <i data-locked="0" id="lock_template" class="icon-lock-open"></i>
               </td>
@@ -2019,8 +2019,8 @@
         <div id="toolsContent" class="tabcontent">
           <p>点击配置：</p>
           <div>
-            <button id="editHeightmapButton" data-tip="点击打开高度图自定义菜单" data-shortcut="Shift + H">
-              高度图
+            <button id="editHeightmapButton" data-tip="点击打开高程图自定义菜单" data-shortcut="Shift + H">
+              高程图
             </button>
             <button id="editBiomesButton" data-tip="点击打开生物群系编辑器" data-shortcut="Shift + B">
               生物群系
