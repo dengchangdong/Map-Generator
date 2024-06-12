@@ -570,7 +570,7 @@
               data-shortcut="S"
               onclick="toggleStates(event)"
             >
-              州
+              国家
             </li>
             <li
               id="toggleProvinces"
@@ -795,7 +795,7 @@
               <option value="routes">路线</option>
               <option value="ruler">标尺</option>
               <option value="scaleBar">比例尺</option>
-              <option value="regions" selected>州</option>
+              <option value="regions" selected>国家</option>
               <option value="temperature">温度</option>
               <option value="texture">纹理</option>
               <option value="vignette">晕影</option>
@@ -1561,148 +1561,110 @@
               <td></td>
             </tr>
 
-            <tr data-tip="Map seed number. Seed produces the same map only if canvas size and options are the same">
+            <tr data-tip="地图种子编号。仅当画布大小和选项相同时，种子才会生成相同的地图">
               <td>
-                <i
-                  data-tip="Show seed history to apply a previous seed"
-                  id="optionsMapHistory"
-                  class="icon-hourglass-1"
-                ></i>
+                <i data-tip="显示种子历史记录以应用之前的种子" id="optionsMapHistory" class="icon-hourglass-1"></i>
               </td>
-              <td>Map seed</td>
+              <td>地图种子</td>
               <td>
                 <input id="optionsSeed" class="long" type="number" min="1" max="999999999" step="1" />
               </td>
               <td>
-                <i
-                  data-tip="Copy map seed as URL. It will produce the same map only if options are default or the same"
-                  id="optionsCopySeed"
-                  class="icon-docs"
-                ></i>
+                <i data-tip="将地图种子复制为 URL。仅当选项为默认或相同时，才会生成相同的地图" id="optionsCopySeed" class="icon-docs"></i>
               </td>
             </tr>
 
-            <tr
-              data-tip="Set number of points to be used for graph generation. Highly affects performance. 10K is the only recommended value"
-            >
+            <tr data-tip="设置用于图形生成的点数。对性能影响很大。10K 是唯一推荐的值">
               <td>
                 <i data-locked="0" id="lock_points" class="icon-lock-open"></i>
               </td>
-              <td>Points number</td>
+              <td>点数</td>
               <td>
-                <input
-                  id="pointsInput"
-                  data-stored="points"
-                  type="range"
-                  min="1"
-                  max="13"
-                  value="4"
-                  data-cells="10000"
-                />
+                <input id="pointsInput" data-stored="points" type="range" min="1" max="13" value="4" data-cells="10000" />
               </td>
               <td>
                 <output id="pointsOutputFormatted" style="color: #053305">10K</output>
               </td>
             </tr>
 
-            <tr data-tip="Define map name (will be used to name downloaded files)">
+            <tr data-tip="定义地图名称（将用于命名下载的文件）">
               <td>
                 <i data-locked="0" id="lock_mapName" class="icon-lock-open"></i>
               </td>
-              <td>Map name</td>
+              <td>地图名称</td>
               <td>
-                <input
-                  id="mapName"
-                  data-stored="mapName"
-                  class="long"
-                  autocorrect="off"
-                  spellcheck="false"
-                  type="text"
-                />
+                <input id="mapName" data-stored="mapName" class="long" autocorrect="off" pellcheck="false" type="text" />
               </td>
               <td>
-                <i data-tip="Regenerate map name" onclick="Names.getMapName(true)" class="icon-arrows-cw"></i>
+                <i data-tip="重新生成地图名称" onclick="Names.getMapName(true)" class="icon-arrows-cw"></i>
               </td>
             </tr>
 
-            <tr data-tip="Define current year and era name">
+            <tr data-tip="定义当前年份和时代名称">
               <td>
                 <i data-locked="0" id="lock_era" class="icon-lock-open"></i>
               </td>
-              <td>Year and era</td>
+              <td>年份和时代</td>
               <td>
-                <input
-                  id="yearInput"
-                  data-stored="year"
-                  type="number"
-                  step="1"
-                  class="paired"
-                  style="width: 24%; float: left; font-size: smaller"
-                />
-                <input
-                  id="eraInput"
-                  data-stored="era"
-                  autocorrect="off"
-                  spellcheck="false"
-                  type="text"
-                  style="width: 75%; float: right"
-                  class="long"
-                />
+                <input id="yearInput" data-stored="year" type="number" step="1" class="paired"
+                  style="width: 24%; float: left; font-size: smaller" />
+                <input id="eraInput" data-stored="era" autocorrect="off" pellcheck="false" type="text"
+                  style="width: 75%; float: right" class="long" />
               </td>
               <td>
-                <i id="optionsEraRegenerate" data-tip="Regenerate era" class="icon-arrows-cw"></i>
+                <i id="optionsEraRegenerate" data-tip="重新生成时代" class="icon-arrows-cw"></i>
               </td>
             </tr>
 
-            <tr data-tip="Select template or precreated heightmap to be used on generation">
+            <tr data-tip="选择生成时要使用的模板或预先创建的高度图">
               <td>
                 <i data-locked="0" id="lock_template" class="icon-lock-open"></i>
               </td>
-              <td>Heightmap</td>
+              <td>高程图</td>
               <td id="templateInputContainer" class="pointer">
                 <select id="templateInput" data-stored="template" style="pointer-events: none"></select>
               </td>
               <td></td>
             </tr>
 
-            <tr data-tip="Define how many Cultures should be generated">
+            <tr data-tip="定义应生成多少个文化">
               <td>
                 <i data-locked="0" id="lock_cultures" class="icon-lock-open"></i>
               </td>
-              <td>Cultures number</td>
+              <td>文化数量</td>
               <td>
-                <input id="culturesInput" data-stored="cultures" type="range" min="1" max="32" value="14" />
+                <input id="culturesInput" data-stored="cultures" type="range" min="1" max="32" 值="14" />
               </td>
               <td>
-                <input id="culturesOutput" data-stored="cultures" type="number" min="1" max="32" value="14" />
+                <input id="culturesOutput" data-stored="cultures" type="number" min="1" max="32" 值="14" />
               </td>
             </tr>
 
-            <tr data-tip="Select a set of cultures to be used for names and cultures generation">
+            <tr data-tip="选择一组用于名称和文化生成的文化">
               <td>
                 <i data-locked="0" id="lock_culturesSet" class="icon-lock-open"></i>
               </td>
-              <td>Cultures set</td>
+              <td>文化背景</td>
               <td>
                 <select id="culturesSet" data-stored="culturesSet">
-                  <option value="world" data-max="32" selected>All-world</option>
-                  <option value="european" data-max="15">European</option>
-                  <option value="oriental" data-max="13">Oriental</option>
-                  <option value="english" data-max="10">English</option>
-                  <option value="antique" data-max="10">Antique</option>
-                  <option value="highFantasy" data-max="17">High Fantasy</option>
-                  <option value="darkFantasy" data-max="18">Dark Fantasy</option>
-                  <option value="random" data-max="100">Random</option>
+                  <option value="world" data-max="32" selected>全世界(All-world)</option>
+                  <option value="european" data-max="15">欧洲(European)</option>
+                  <option value="oriental" data-max="13">东方(Oriental)</option>
+                  <option value="english" data-max="10">英式(English)</option>
+                  <option value="antique" data-max="10">古典(Antique)</option>
+                  <option value="highFantasy" data-max="17">古典幻想(High Fantasy)</option>
+                  <option value="darkFantasy" data-max="18">黑暗幻想(Dark Fantasy)</option>
+                  <option value="random" data-max="100">随机(Random)</option>
                 </select>
               </td>
               <td></td>
             </tr>
 
-            <tr data-tip="Define how many states and capitals should be generated">
+            <tr data-tip="定义应生成多少个国家和首府">
               <td>
                 <i data-locked="0" id="lock_regions" class="icon-lock-open"></i>
               </td>
-              <td>States number</td>
+              <td>国家数量</td>
               <td>
                 <input id="regionsInput" data-stored="regions" type="range" min="0" max="99" value="13" />
               </td>
@@ -1711,11 +1673,11 @@
               </td>
             </tr>
 
-            <tr data-tip="Define burgs percentage to form a separate province">
+            <tr data-tip="定义城镇百分比以形成单独的省份">
               <td>
                 <i data-locked="0" id="lock_provinces" class="icon-lock-open"></i>
               </td>
-              <td>Provinces ratio</td>
+              <td>省份比率</td>
               <td>
                 <input id="provincesInput" data-stored="provinces" type="range" min="0" max="100" value="30" />
               </td>
@@ -1724,11 +1686,11 @@
               </td>
             </tr>
 
-            <tr data-tip="Define how much states and cultures can vary in size. Defines expansionism value">
+            <tr data-tip="定义国家和文化的大小变化程度。定义扩张主义值">
               <td>
                 <i data-locked="0" id="lock_power" class="icon-lock-open"></i>
               </td>
-              <td>Size variety</td>
+              <td>大小变化</td>
               <td>
                 <input id="powerInput" data-stored="power" type="range" min="0" max="10" step=".2" value="5" />
               </td>
@@ -1737,11 +1699,11 @@
               </td>
             </tr>
 
-            <tr data-tip="Set state and cultures growth rate. Defines how many lands will stay neutral">
+            <tr data-tip="设置国家和文化的增长率。定义有多少土地将保持中立">
               <td>
                 <i data-locked="0" id="lock_neutral" class="icon-lock-open"></i>
               </td>
-              <td>Growth rate</td>
+              <td>增长率</td>
               <td>
                 <input id="neutralInput" data-stored="neutral" type="range" min=".1" max="2" step=".1" value="1" />
               </td>
@@ -1750,11 +1712,11 @@
               </td>
             </tr>
 
-            <tr data-tip="Define a number of towns to be placed (if enough suitable land exists)">
+            <tr data-tip="定义要放置的城市数量（如果有足够的合适土地）">
               <td>
                 <i data-locked="0" id="lock_manors" class="icon-lock-open"></i>
               </td>
-              <td>Towns number</td>
+              <td>城市数量</td>
               <td>
                 <input id="manorsInput" data-stored="manors" type="range" min="0" max="1000" step="1" value="1000" />
               </td>
@@ -1763,13 +1725,11 @@
               </td>
             </tr>
 
-            <tr
-              data-tip="Define how many organized religions and cults should be generated. Cultures will have their own folk religions in any case"
-            >
+            <tr data-tip="定义应生成多少个有组织的宗教和邪教。无论如何，文化都会有自己的民间宗教">
               <td>
                 <i data-locked="0" id="lock_religions" class="icon-lock-open"></i>
               </td>
-              <td>Religions number</td>
+              <td>宗教数量</td>
               <td>
                 <input id="religionsInput" data-stored="religions" type="range" min="0" max="50" step="1" value="15" />
               </td>
@@ -1778,16 +1738,16 @@
               </td>
             </tr>
 
-            <tr data-tip="Select state labels mode: display short or full names">
+            <tr data-tip="选择国家标签模式：显示简称或全名">
               <td>
                 <i data-locked="0" id="lock_stateLabelsMode" class="icon-lock-open"></i>
               </td>
-              <td>State labels</td>
+              <td>状态标签</td>
               <td>
                 <select id="stateLabelsModeInput" data-stored="stateLabelsMode">
-                  <option value="auto">Auto</option>
-                  <option value="short">Short names</option>
-                  <option value="full">Full names</option>
+                  <option value="auto">自动</option>
+                  <option value="short">简称</option>
+                  <option value="full">全名</option>
                 </select>
               </td>
               <td></td>
@@ -2065,8 +2025,8 @@
             <button id="editBiomesButton" data-tip="点击打开生物群系编辑器" data-shortcut="Shift + B">
               生物群系
             </button>
-            <button id="editStatesButton" data-tip="点击打开州编辑器" data-shortcut="Shift + S">
-              州
+            <button id="editStatesButton" data-tip="点击打开国家编辑器" data-shortcut="Shift + S">
+              国家
             </button>
             <button id="editProvincesButton" data-tip="点击打开省份编辑器" data-shortcut="Shift + P">
               省份
@@ -2115,7 +2075,7 @@
 
           <p>点击重新生成：</p>
           <div id="regenerateFeature">
-            <button id="regenerateStateLabels" data-tip="单击以根据当前边界更新州标签位置">
+            <button id="regenerateStateLabels" data-tip="单击以根据当前边界更新国家标签位置">
               标签
             </button>
             <button id="regenerateReliefIcons" data-tip="单击以重新生成所有救济根据当前单元格生物群系和海拔生成图标">
@@ -2128,13 +2088,13 @@
             <button id="regeneratePopulation" data-tip="单击以重新计算农村和城市人口">
               人口
             </button>
-            <button id="regenerateStates" data-tip="单击以选择新首都并重新生成未锁定的州。徽章和军事力量也将重新生成，城镇将保持原样">
-              州
+            <button id="regenerateStates" data-tip="单击以选择新首都并重新生成未锁定的国家。徽章和军事力量也将重新生成，城镇将保持原样">
+              国家
             </button>
-            <button id="regenerateProvinces" data-tip="单击以重新生成未锁定的省份。各州将保持原样">
+            <button id="regenerateProvinces" data-tip="单击以重新生成未锁定的省份。各国将保持原样">
               省份
             </button>
-            <button id="regenerateBurgs" data-tip="单击以重新生成所有未锁定的城镇和路线。各州将保持原样。注意：城镇仅在指定文化的人口稠密地区生成">
+            <button id="regenerateBurgs" data-tip="单击以重新生成所有未锁定的城镇和路线。各国将保持原样。注意：城镇仅在指定文化的人口稠密地区生成">
               城镇
             </button>
             <button id="regenerateEmblems" data-tip="单击以重新生成所有徽章">徽章</button>
