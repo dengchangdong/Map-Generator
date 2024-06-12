@@ -399,7 +399,7 @@
           class="options"
           style="display: none"
         >
-          创建新地图
+          新建地图
         </button>
       </div>
 
@@ -1297,37 +1297,37 @@
             </tbody>
 
             <tbody id="styleStates" style="display: block">
-              <tr data-tip="Set states fill opacity. 0: invisible, 1: solid">
-                <td>Body opacity</td>
+              <tr data-tip="设置状态填充不透明度。0：不可见，1：实心">
+                <td>主体不透明度</td>
                 <td>
                   <input id="styleStatesBodyOpacity" type="range" min="0" max="1" step="0.01" />
                   <output id="styleStatesBodyOpacityOutput"></output>
                 </td>
               </tr>
 
-              <tr data-tip="Select filter for states fill. Please note filters may cause performance issues!">
-                <td>Body filter</td>
+              <tr data-tip="选择状态填充过滤器。请注意，过滤器可能会导致性能问题！">
+                <td>主体过滤器</td>
                 <td><select id="styleStatesBodyFilter" /></td>
               </tr>
 
-              <tr data-tip="Set states halo effect width">
-                <td>Halo width</td>
+              <tr data-tip="设置状态光环效果宽度">
+                <td>光环宽度</td>
                 <td>
                   <input id="styleStatesHaloWidth" type="range" min="0" max="30" step=".1" value="10" />
                   <output id="styleStatesHaloWidthOutput">10</output>
                 </td>
               </tr>
 
-              <tr data-tip="Set states halo effect opacity. 0: invisible, 1: solid">
-                <td>Halo opacity</td>
+              <tr data-tip="设置光晕效果不透明度。0：不可见，1：实心">
+                <td>光晕不透明度</td>
                 <td>
                   <input id="styleStatesHaloOpacity" type="range" min="0" max="1" step="0.01" value="1" />
                   <output id="styleStatesHaloOpacityOutput">1</output>
                 </td>
               </tr>
 
-              <tr data-tip="Select halo effect power (blur). Set to 0 to make it solid line" style="margin-bottom: 1em">
-                <td>Halo blur</td>
+              <tr data-tip="选择光晕效果强度（模糊）。设置为 0 以使其成为实线” style="margin-bottom: 1em">
+                <td>光晕模糊</td>
                 <td>
                   <input id="styleStatesHaloBlur" type="range" min="0" max="10" step="0.01" value="4" />
                   <output id="styleStatesHaloBlurOutput">4</output>
@@ -1336,15 +1336,16 @@
             </tbody>
 
             <tbody id="styleArmies">
-              <tr data-tip="Set fill transparency. Set to 0 to make it fully transparent">
-                <td>Fill opacity</td>
+              <tr data-tip="设置填充透明度。设置为 0 使其完全透明">
+                <td>填充不透明度</td>
                 <td>
                   <input id="styleArmiesFillOpacity" type="range" min="0" max="1" step=".01" value="1" />
                   <output id="styleArmiesFillOpacityOutput">1</output>
                 </td>
               </tr>
-              <tr data-tip="Set regiment box size. All regiments will be redrawn on change (position will defaulted)">
-                <td>Box Size</td>
+              
+              <tr data-tip="设置团框大小。所有团将在更改时重新绘制（位置将为默认值）">
+                <td>框大小</td>
                 <td>
                   <input id="styleArmiesSize" type="range" min="1" max="10" step=".1" value="3" />
                   <output id="styleArmiesSizeOutput">3</output>
@@ -1530,12 +1531,12 @@
             </tbody>
           </table>
 
-          <div id="mapFilters" data-tip="Set a filter to be applied to the map in general">
-            <p>Toggle global filters:</p>
-            <button id="grayscale" class="radio">Grayscale</button>
-            <button id="sepia" class="radio">Sepia</button>
-            <button id="dingy" class="radio">Dingy</button>
-            <button id="tint" class="radio">Tint</button>
+          <div id="mapFilters" data-tip="设置要应用于地图的过滤器">
+            <p>切换全局过滤器：</p>
+            <button id="grayscale" class="radio">灰度</button>
+            <button id="sepia" class="radio">棕褐色</button>
+            <button id="dingy" class="radio">暗淡</button>
+            <button id="tint" class="radio">色调</button>
           </div>
         </div>
 
@@ -2330,11 +2331,11 @@
         </div>
 
         <div id="sticked">
-          <button id="newMapButton" data-tip="Generate a new map based on options" data-shortcut="F2">新地图</button>
-          <button id="exportButton" data-tip="Select format to download image or export map data">导出</button>
-          <button id="saveButton" data-tip="Save fully-functional map file">保存</button>
-          <button id="loadButton" data-tip="Load fully-functional map (.map or .gz formats)">加载</button>
-          <button id="zoomReset" data-tip="Reset map zoom" data-shortcut="0 (zero)">重置缩放</button>
+          <button id="newMapButton" data-tip="根据选项生成新地图" data-shortcut="F2">新建地图</button>
+          <button id="exportButton" data-tip="选择格式下载图片或导出地图数据">导出</button>
+          <button id="saveButton" data-tip="保存功能齐全的地图文件">保存</button>
+          <button id="loadButton" data-tip="加载功能齐全的地图（.map 或 .gz 格式）">载入</button>
+          <button id="zoomReset" data-tip="重置地图缩放" data-shortcut="0（零）">重置缩放</button>
         </div>
       </div>
     </div>
