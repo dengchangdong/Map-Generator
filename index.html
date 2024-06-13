@@ -714,58 +714,34 @@
             </li>
           </ul>
 
-          <div id="viewMode" data-tip="Set view node">
+          <div id="viewMode" data-tip="设置视图节点">
             <p>查看模式：</p>
-            <button data-tip="Standard view mode that allows to edit the map" id="viewStandard" class="pressed">
+            <button data-tip="标准视图模式，允许编辑地图" id="viewStandard" class="pressed">
               标准
             </button>
-            <button
-              data-tip="Map presentation in 3D scene. Works best for heightmap. Cannot be used for editing"
-              id="viewMesh"
-            >
-              3D 场景
+            <button data-tip="3D场景中的地图呈现。最适合高度图。无法用于编辑" id="viewMesh">
+              3D场景
             </button>
-            <button data-tip="Project map on globe. Cannot be used for editing" id="viewGlobe">地球</button>
+            <button data-tip="地球上投影地图。无法用于编辑" id="viewGlobe">地球</button>
           </div>
-        </div>
+          </div>
 
         <div id="styleContent" class="tabcontent">
           <div>
-            <p
-              data-tip="Select a style preset. State labels may required regeneration if font is changed"
-              style="display: inline-block"
-            >
+            <p data-tip="选择样式预设。如果字体发生变化，状态标签可能需要重新生成" style="display: inline-block">
               预设样式：
             </p>
-            <select
-              data-tip="Select a style preset"
-              id="stylePreset"
-              onchange="requestStylePresetChange(this.value)"
-              style="width: 45%; text-transform: capitalize"
-            ></select>
-            <button
-              id="addStyleButton"
-              data-tip="Click to save current style as a new preset"
-              class="icon-plus sideButton"
-              style="display: inline-block"
-              onclick="addStylePreset()"
-            ></button>
-            <button
-              id="removeStyleButton"
-              data-tip="Click to remove current custom style preset"
-              class="icon-minus sideButton"
-              style="display: none"
-              onclick="requestRemoveStylePreset()"
-            ></button>
+            <select data-tip="选择样式预设" id="stylePreset" onchange="requestStylePresetChange(this.value)"
+              style="width: 45%; text-transform: capitalize"></select>
+            <button id="addStyleButton" data-tip="点击将当前样式保存为新预设" class="icon-plus sideButton" style="display: inline-block"
+              onclick="addStylePreset()"></button>
+            <button id="removeStyleButton" data-tip="点击删除当前自定义样式预设" class="icon-minus sideButton" style="display: none"
+              onclick="requestRemoveStylePreset()"></button>
           </div>
 
           <div>
-            <p data-tip="Select an element to edit its style" style="display: inline-block">选择元素：</p>
-            <select
-              data-tip="Select an element to edit its style (list is ordered alphabetically)"
-              id="styleElementSelect"
-              style="width: 42%"
-            >            
+            <p data-tip="选择一个元素来编辑其样式" style="display: inline-block">选择元素：</p>
+            <select data-tip="选择一个元素来编辑其样式（列表按字母顺序排列）" id="styleElementSelect" style="width: 42%">           
               <option value="anchors">锚图标</option>
               <option value="biomes">生物群落</option>
               <option value="borders">边界</option>
@@ -805,16 +781,13 @@
           </div>
 
           <table id="styleElements">
-            <caption
-              id="styleIsOff"
-              data-tip="The selected layer is not visible. Toogle it on to see style changes effect"
-            >
+            <caption id="styleIsOff" data-tip="所选图层不可见。将其打开以查看样式更改效果">
               确保元素可见性已打开
             </caption>
 
             <tbody id="styleGroup">
-              <tr data-tip="Select element group">
-                <td><b>Group</b></td>
+              <tr data-tip="选择元素组">
+                <td><b>组</b></td>
                 <td>
                   <select id="styleGroupSelect"></select>
                 </td>
@@ -822,65 +795,61 @@
             </tbody>
 
             <tbody id="styleHeightmap">
-              <tr id="styleHeightmapRenderOceanOption" data-tip="Check to render ocean heights">
+              <tr id="styleHeightmapRenderOceanOption" data-tip="勾选以渲染海洋高度">
                 <td colspan="2">
                   <input id="styleHeightmapRenderOcean" class="checkbox" type="checkbox" />
-                  <label for="styleHeightmapRenderOcean" class="checkbox-label">Render ocean heights</label>
+                  <label for="styleHeightmapRenderOcean" class="checkbox-label">渲染海洋高度</label>
                 </td>
               </tr>
 
-              <tr data-tip="Terracing rate. Set to 0 (toggle off) to improve performance">
-                <td>Terracing</td>
+              <tr data-tip="梯田化率。设置为 0（关闭）以提高性能">
+                <td>梯田化</td>
                 <td>
                   <input id="styleHeightmapTerracingInput" type="range" min="0" max="20" step="1" />
                   <output id="styleHeightmapTerracingOutput">0</output>
                 </td>
               </tr>
 
-              <tr data-tip="Layers reduction rate. Increase to improve performance">
-                <td>Reduce layers</td>
+              <tr data-tip="层数减少率。增加以提高性能">
+                <td>减少图层</td>
                 <td>
                   <input id="styleHeightmapSkipInput" type="range" min="0" max="10" step="1" value="5" />
                   <output id="styleHeightmapSkipOutput">5</output>
                 </td>
               </tr>
 
-              <tr data-tip="Line simplification rate. Increase to slightly improve performance">
-                <td>Simplify line</td>
+              <tr data-tip="线简化率。增加以略微提高性能">
+                <td>简化线</td>
                 <td>
                   <input id="styleHeightmapSimplificationInput" type="range" min="0" max="10" step="1" value="0" />
                   <output id="styleHeightmapSimplificationOutput">0</output>
                 </td>
               </tr>
 
-              <tr data-tip="Select line interpolation type">
-                <td>Line style</td>
+              <tr data-tip="选择线插值类型">
+                <td>线样式</td>
                 <td>
                   <select id="styleHeightmapCurve">
-                    <option value="curveBasisClosed" selected>Curved</option>
-                    <option value="curveLinear">Linear</option>
-                    <option value="curveStep">Rectangular</option>
+                    <option value="curveBasisClosed" selected>曲线</option>
+                    <option value="curveLinear">线性</option>
+                    <option value="curveStep">矩形</option>
                   </select>
                 </td>
               </tr>
 
-              <tr data-tip="Select color scheme for the element">
-                <td>Color scheme</td>
+              <tr data-tip="为元素选择配色方案">
+                <td>配色方案</td>
                 <td>
                   <select id="styleHeightmapScheme"></select>
-                  <button
-                    id="openCreateHeightmapSchemeButton"
-                    data-tip="Click to add a custom heightmap color scheme"
-                    data-stops="#ffffff,#EEEECC,#D2B48C,#008000,#008080"
-                    class="icon-plus sideButton"
-                  ></button>
+                  <button id="openCreateHeightmapSchemeButton" data-tip="点击添加自定义高度图配色方案"
+                    data-stops="#ffffff,#EEEECC,#D2B48C,#008000,#008080" class="icon-plus sideButton"></button>
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleOpacity" style="display: none">
-              <tr data-tip="Set opacity. 0: transparent, 1: solid">
-                <td>Opacity</td>
+              <tr data-tip="设置不透明度。0：透明，1：实心">
+                <td>不透明度</td>
                 <td>
                   <input id="styleOpacityInput" type="range" min="0" max="1" step="0.01" value=".4" />
                   <output id="styleOpacityOutput">0.4</output>
@@ -889,24 +858,24 @@
             </tbody>
 
             <tbody id="styleLegend">
-              <tr data-tip="Set maximum number of items in one column">
-                <td>Column items</td>
+              <tr data-tip="设置一列中的最大项目数">
+                <td>列项目</td>
                 <td>
                   <input id="styleLegendColItems" type="range" min="1" max="30" step="1" value="8" />
                   <output id="styleLegendColItemsOutput">8</output>
                 </td>
               </tr>
 
-              <tr data-tip="Set background color">
-                <td>Background</td>
+              <tr data-tip="设置背景颜色">
+                <td>背景</td>
                 <td>
                   <input id="styleLegendBack" type="color" value="#ffffff" />
                   <output id="styleLegendBackOutput">#ffffff</output>
                 </td>
               </tr>
 
-              <tr data-tip="Set background opacity">
-                <td>Opacity</td>
+              <tr data-tip="设置背景不透明度">
+                <td>不透明度</td>
                 <td>
                   <input id="styleLegendOpacity" type="range" min="0" max="1" step="0.01" value="1" />
                   <output id="styleLegendOpacityOutput">1</output>
@@ -915,16 +884,16 @@
             </tbody>
 
             <tbody id="stylePopulation">
-              <tr data-tip="Set bar color for rural population">
-                <td>Rural color</td>
+              <tr data-tip="设置农村人口条形颜色">
+                <td>农村颜色</td>
                 <td>
                   <input id="stylePopulationRuralStrokeInput" type="color" value="#0000ff" />
                   <output id="stylePopulationRuralStrokeOutput">#0000ff</output>
                 </td>
               </tr>
 
-              <tr data-tip="Set bar color for urban population">
-                <td>Urban color</td>
+              <tr data-tip="设置城市人口条形颜色">
+                <td>城市颜色</td>
                 <td>
                   <input id="stylePopulationUrbanStrokeInput" type="color" value="#ff0000" />
                   <output id="stylePopulationUrbanStrokeOutput">#ff0000</output>
@@ -972,43 +941,43 @@
                 </td>
               </tr>
 
-              <tr data-tip="Shift the texture by axes">
-                <td>Shift by axes</td>
+              <tr data-tip="按轴移动纹理">
+                <td>按轴移动</td>
                 <td>
-                  <input id="styleTextureShiftX" type="number" value="0" data-tip="Shift texture by x axis in pixels" />
-                  <input id="styleTextureShiftY" type="number" value="0" data-tip="Shift texture by y axis in pixels" />
+                  <input id="styleTextureShiftX" type="number" value="0" data-tip="按 x 轴移动纹理（以像素为单位）" />
+                  <input id="styleTextureShiftY" type="number" value="0" data-tip="按 y 轴移动纹理（以像素为单位）" />
                 </td>
               </tr>
-            </tbody>
+              </tbody>
 
-            <tbody id="styleVignette">
-              <tr data-tip="Select precreated vignette">
-                <td>Preset</td>
-                <td>
-                  <select id="styleVignettePreset"></select>
-                </td>
-              </tr>
+              <tbody id="styleVignette">
+                <tr data-tip="选择预先创建的晕影">
+                  <td>预设</td>
+                  <td>
+                    <select id="styleVignettePreset"></select>
+                  </td>
+                </tr>
 
-              <tr data-tip="Vignette rectangle position (in percents)">
-                <td>Position</td>
-                <td style="display: flex; flex-direction: column; gap: 2px">
-                  <div>
-                    <span>x </span>
-                    <input id="styleVignetteX" type="number" min="0" max="100" step="0.1" style="width: 5em" />
-                    <span>width&nbsp; </span>
-                    <input id="styleVignetteWidth" type="number" min="0" max="100" step="0.1" style="width: 5em" />
-                  </div>
-                  <div>
-                    <span>y </span>
-                    <input id="styleVignetteY" type="number" min="0" max="100" step="0.1" style="width: 5em" />
-                    <span>height </span>
-                    <input id="styleVignetteHeight" type="number" min="0" max="100" step="0.1" style="width: 5em" />
-                  </div>
-                </td>
-              </tr>
+                <tr data-tip="晕影矩形位置（以百分比为单位）">
+                  <td>位置</td>
+                  <td style="display: flex; flex-direction: column; gap: 2px">
+                    <div>
+                      <span>x </span>
+                      <input id="styleVignetteX" type="number" min="0" max="100" step="0.1" style="width: 5em" />
+                      <span>宽度 </span>
+                      <input id="styleVignetteWidth" type="number" min="0" max="100" step="0.1" style="width: 5em" />
+                    </div>
+                    <div>
+                      <span>y </span>
+                      <input id="styleVignetteY" type="number" min="0" max="100" step="0.1" style="width: 5em" />
+                      <span>高度 </span>
+                      <input id="styleVignetteHeight" type="number" min="0" max="100" step="0.1" style="width: 5em" />
+                    </div>
+                  </td>
+                </tr>
 
-              <tr data-tip="Set vignette X and Y radius (in percents)">
-                <td>Radius</td>
+              <tr data-tip="设置晕影 X 和 Y 半径（以百分比为单位）">
+                <td>半径</td>
                 <td>
                   <span>x </span>
                   <input id="styleVignetteRx" type="number" min="0" max="50" style="width: 5em" />
@@ -1017,156 +986,144 @@
                 </td>
               </tr>
 
-              <tr data-tip="Set vignette blue propagation (in pixels)">
-                <td>Blur</td>
+              <tr data-tip="设置晕影蓝色传播（以像素为单位）">
+                <td>模糊</td>
                 <td>
                   <input id="styleVignetteBlur" type="range" min="0" max="400" step="1" value="50" />
                   <output id="styleVignetteBlurOutput">50</output>px
                 </td>
               </tr>
-            </tbody>
+              </tbody>
 
-            <tbody id="styleOcean">
-              <tr data-tip="Select ocean pattern">
-                <td>Pattern</td>
-                <td>
-                  <select id="styleOceanPattern">
-                    <option value="">No pattern</option>
-                    <option value="./images/pattern1.png">Pattern 1</option>
-                    <option value="./images/pattern2.png">Pattern 2</option>
-                    <option value="./images/pattern3.png">Pattern 3</option>
-                    <option value="./images/pattern4.png">Pattern 4</option>
-                    <option value="./images/pattern5.png">Pattern 5</option>
-                    <option value="./images/pattern6.png">Pattern 6</option>
-                    <option value="./images/kiwiroo.png">Kiwiroo</option>
-                  </select>
-                </td>
-              </tr>
+              <tbody id="styleOcean">
+                <tr data-tip="选择海洋图案">
+                  <td>图案</td>
+                  <td>
+                    <select id="styleOceanPattern">
+                      <option value="">无图案</option>
+                      <option value="./images/pattern1.png">图案 1</option>
+                      <option value="./images/pattern2.png">图案 2</option>
+                      <option value="./images/pattern3.png">图案 3</option>
+                      <option value="./images/pattern4.png">图案 4</option>
+                      <option value="./images/pattern5.png">图案 5</option>
+                      <option value="./images/pattern6.png">图案 6</option>
+                      <option value="./images/kiwiroo.png">Kiwiroo</option>
+                    </select>
+                  </td>
+                </tr>
 
-              <tr data-tip="Set ocean pattern opacity">
-                <td>Pattern opacity</td>
-                <td>
-                  <input id="styleOceanPatternOpacity" type="range" min="0" max="1" step=".01" value=".2" />
-                  <output id="styleOceanPatternOpacityOutput">0.2</output>
-                </td>
-              </tr>
+                <tr data-tip="设置海洋图案不透明度">
+                  <td>图案不透明度</td>
+                  <td>
+                    <input id="styleOceanPatternOpacity" type="range" min="0" max="1" step=".01" value=".2" />
+                    <output id="styleOceanPatternOpacityOutput">0.2</output>
+                  </td>
+                </tr>
 
-              <tr data-tip="Define the coast outline contours scheme">
-                <td>Ocean layers</td>
-                <td>
-                  <select id="outlineLayers">
-                    <option value="none">No outline</option>
-                    <option value="random">Random</option>
-                    <option value="-6,-3,-1" selected>Standard 3</option>
-                    <option value="-6,-4,-2">Indented 3</option>
-                    <option value="-9,-6,-3,-1">Standard 4</option>
-                    <option value="-6,-5,-4,-3,-2,-1">Smooth 6</option>
-                    <option value="-9,-8,-7,-6,-5,-4,-3,-2,-1">Smooth 9</option>
-                  </select>
-                </td>
-              </tr>
+                <tr data-tip="定义海岸轮廓轮廓方案">
+                  <td>海洋图层</td>
+                  <td>
+                    <select id="outlineLayers">
+                      <option value="none">无轮廓</option>
+                      <option value="random">随机</option>
+                      <option value="-6,-3,-1" selected>标准3</option>
+                      <option value="-6,-4,-2">缩进 3</option>
+                      <option value="-9,-6,-3,-1">标准 4</option>
+                      <option value="-6,-5,-4,-3,-2,-1">平滑 6</option>
+                      <option value="-9,-8,-7,-6,-5,-4,-3,-2,-1">平滑 9</option>
+                    </select>
+                  </td>
+                </tr>
 
-              <tr data-tip="Set ocean color">
-                <td>Color</td>
+              <tr data-tip="设置海洋颜色">
+                <td>颜色</td>
                 <td>
                   <input id="styleOceanFill" type="color" value="#466eab" />
                   <output id="styleOceanFillOutput">#466eab</output>
                 </td>
               </tr>
-            </tbody>
+              </tbody>
 
-            <tbody id="styleGrid">
-              <tr data-tip="Select grid overlay type">
-                <td>Type</td>
-                <td>
-                  <select id="styleGridType">
-                    <option value="pointyHex">Hex grid (pointy)</option>
-                    <option value="flatHex">Hex grid (flat)</option>
-                    <option value="square">Square grid</option>
-                  </select>
-                </td>
-              </tr>
+              <tbody id="styleGrid">
+                <tr data-tip="选择网格覆盖类型">
+                  <td>类型</td>
+                  <td>
+                    <select id="styleGridType">
+                      <option value="pointyHex">六角网格（尖头）</option>
+                      <option value="flatHex">六角网格（扁平）</option>
+                      <option value="square">方形网格</option>
+                    </select>
+                  </td>
+                </tr>
 
-              <tr data-tip="Set grid cells scale multiplier">
-                <td>Scale</td>
-                <td>
-                  <input id="styleGridScale" type="number" min=".1" max="10" step=".01" />
-                  <output
-                    id="styleGridSizeFriendly"
-                    data-tip="Distance between grid cell centers (in map scale)"
-                  ></output>
-                </td>
-              </tr>
+                <tr data-tip="设置网格单元比例乘数">
+                  <td>比例</td>
+                  <td>
+                    <input id="styleGridScale" type="number" min=".1" max="10" step=".01" />
+                    <output id="styleGridSizeFriendly" data-tip="网格单元中心之间的距离（地图比例）"></output>
+                  </td>
+                </tr>
 
-              <tr data-tip="Shift the element by axes">
-                <td>Shift by axes</td>
-                <td>
-                  <input id="styleGridShiftX" type="number" data-tip="Shift by x axis in pixels" />
-                  <input id="styleGridShiftY" type="number" data-tip="Shift by y axis in pixels" />
-                </td>
-              </tr>
-            </tbody>
+                <tr data-tip="按轴移动元素">
+                  <td>按轴移动</td>
+                  <td>
+                    <input id="styleGridShiftX" type="number" data-tip="按 x 轴移动（以像素为单位）" />
+                    <input id="styleGridShiftY" type="number" data-tip="按 y 轴移动（以像素为单位）" />
+                  </td>
+                </tr>
+              </tbody>
 
-            <tbody id="styleCompass">
-              <tr data-tip="Set wind (compass) rose size">
-                <td>Size</td>
-                <td>
-                  <input id="styleCompassSizeInput" type="range" min=".02" max="1" step=".01" value=".25" />
-                  <output id="styleCompassSizeOutput">.25</output>
-                </td>
-              </tr>
+              <tbody id="styleCompass">
+                <tr data-tip="设置风向（罗盘）玫瑰大小">
+                  <td>大小</td>
+                  <td>
+                    <input id="styleCompassSizeInput" type="range" min=".02" max="1" step=".01" value=".25" />
+                    <output id="styleCompassSizeOutput">.25</output>
+                  </td>
+                </tr>
 
-              <tr data-tip="Shift wind (compass) rose by axes">
-                <td>Shift by axes</td>
-                <td>
-                  <input id="styleCompassShiftX" type="number" value="80" data-tip="Shift by x axis in pixels" />
-                  <input id="styleCompassShiftY" type="number" value="80" data-tip="Shift by y axis in pixels" />
-                </td>
-              </tr>
-            </tbody>
+                <tr data-tip="按轴移动风（罗盘）玫瑰">
+                  <td>按轴移动</td>
+                  <td>
+                    <input id="styleCompassShiftX" type="number" value="80" data-tip="按 x 轴移动（以像素为单位）" />
+                    <input id="styleCompassShiftY" type="number" value="80" data-tip="按 y 轴移动（以像素为单位）" />
+                  </td>
+                </tr>
+              </tbody>
 
             <tbody id="styleRelief">
-              <tr data-tip="Select set of relief icons. All relief icons will be regenerated">
-                <td>Style</td>
+              <tr data-tip="选择一组浮雕图标。所有浮雕图标都将重新生成">
+                <td>样式</td>
                 <td>
                   <select id="styleReliefSet">
-                    <option value="simple" selected>Simple</option>
-                    <option value="gray">Gray</option>
-                    <option value="colored">Colored</option>
+                    <option value="simple" selected>简单</option>
+                    <option value="gray">灰色</option>
+                    <option value="colored">彩色</option>
                   </select>
                 </td>
               </tr>
 
-              <tr data-tip="Define the size of relief icons. All relief icons will be regenerated">
-                <td>Size</td>
+              <tr data-tip="定义浮雕图标的大小。所有浮雕图标都将重新生成">
+                <td>大小</td>
                 <td>
                   <input id="styleReliefSizeInput" data-stored="reliefSize" type="range" min=".2" max="4" step=".01" />
                   <output id="styleReliefSizeOutput"></output>
                 </td>
               </tr>
 
-              <tr
-                data-tip="Define the density of relief icons. All relief icons will be regenerated. Highly affects performance!"
-              >
-                <td>Density</td>
+              <tr data-tip="定义浮雕图标的密度。所有浮雕图标都将重新生成。严重影响性能！">
+                <td>密度</td>
                 <td>
-                  <input
-                    id="styleReliefDensityInput"
-                    data-stored="reliefDensity"
-                    type="range"
-                    min=".3"
-                    max=".8"
-                    step=".01"
-                    value=".4"
-                  />
+                  <input id="styleReliefDensityInput" data-stored="reliefDensity" type="range" min=".3" max=".8" step=".01"
+                    value=".4" />
                   <output id="styleReliefDensityOutput">.4</output>
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleFill">
-              <tr data-tip="Set fill color">
-                <td>Fill</td>
+              <tr data-tip="设置填充颜色">
+                <td>填充</td>
                 <td>
                   <input id="styleFillInput" type="color" value="#5E4FA2" />
                   <output id="styleFillOutput">#5E4FA2</output>
@@ -1175,8 +1132,8 @@
             </tbody>
 
             <tbody id="styleStroke">
-              <tr data-tip="Set stroke color">
-                <td>Stroke</td>
+              <tr data-tip="设置描边颜色">
+                <td>描边</td>
                 <td>
                   <input id="styleStrokeInput" type="color" value="#5E4FA2" />
                   <output id="styleStrokeOutput">#5E4FA2</output>
@@ -1185,8 +1142,8 @@
             </tbody>
 
             <tbody id="styleStrokeWidth">
-              <tr data-tip="Set stroke width">
-                <td>Stroke width</td>
+              <tr data-tip="设置描边宽度">
+                <td>描边宽度</td>
                 <td>
                   <input id="styleStrokeWidthInput" type="range" min="0" max="5" step=".01" value="1" />
                   <output id="styleStrokeWidthOutput">1</output>
@@ -1195,100 +1152,100 @@
             </tbody>
 
             <tbody id="styleStrokeDash">
-              <tr data-tip="Set stroke dash array (e.g. 5 2) and linecap">
-                <td>Stroke dash</td>
+              <tr data-tip="设置描边虚线数组（例如 5 2）和线帽">
+                <td>描边虚线</td>
                 <td>
                   <input id="styleStrokeDasharrayInput" type="text" value="1 2" style="width: 26%" />
                   <select id="styleStrokeLinecapInput" style="width: 32%">
-                    <option value="inherit" selected>Inherit</option>
+                    <option value="inherit" selected>继承</option>
                     <option value="butt">Butt</option>
-                    <option value="round">Round</option>
-                    <option value="square">Square</option>
+                    <option value="round">​​圆形</option>
+                    <option value="square">方形</option>
                   </select>
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleShadow">
-              <tr data-tip="Set text shadow">
-                <td>Text shadow</td>
+              <tr data-tip="设置文本阴影">
+                <td>文本阴影</td>
                 <td>
-                  <input id="styleShadowInput" type="text" value="0 0 4px white" />
+                  <input id="styleShadowInput" type="text" value="0 0 4px 白色" />
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleFont">
-              <tr data-tip="Select font">
-                <td>Font</td>
+              <tr data-tip="选择字体">
+                <td>字体</td>
                 <td>
                   <select id="styleSelectFont"></select>
-                  <button id="styleFontAdd" data-tip="Add a font" class="icon-plus sideButton"></button>
+                  <button id="styleFontAdd" data-tip="添加字体" class="icon-plus sideButton"></button>
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleSize">
-              <tr data-tip="Set font size">
-                <td>Font size</td>
+              <tr data-tip="设置字体大小">
+                <td>字体大小</td>
                 <td>
-                  <button id="styleFontPlus" data-tip="Increase font" class="whiteButton">+</button>
-                  <button id="styleFontMinus" data-tip="Descrease font" class="whiteButton">-</button>
+                  <button id="styleFontPlus" data-tip="增加字体" class="whiteButton">+</button>
+                  <button id="styleFontMinus" data-tip="减少字体" class="whiteButton">-</button>
                   <input id="styleFontSize" type="number" min=".5" max="100" step=".1" value="14" />
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleRadius">
-              <tr data-tip="Set icon size">
-                <td>Radius</td>
+              <tr data-tip="设置图标大小">
+                <td>半径</td>
                 <td>
-                  <button id="styleRadiusPlus" data-tip="Multiply radius by 1.1" class="whiteButton">+</button>
-                  <button id="styleRadiusMinus" data-tip="Multiply radius by 1.1" class="whiteButton">-</button>
+                  <button id="styleRadiusPlus" data-tip="将半径乘以 1.1" class="whiteButton">+</button>
+                  <button id="styleRadiusMinus" data-tip="将半径乘以 1.1" class="whiteButton">-</button>
                   <input id="styleRadiusInput" type="number" min=".2" max="10" step=".02" value="1" />
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleIconSize">
-              <tr data-tip="Set icon size">
-                <td>Size</td>
+              <tr data-tip="设置图标大小">
+                <td>大小</td>
                 <td>
-                  <button id="styleIconSizePlus" data-tip="Multiply size by 1.1" class="whiteButton">+</button>
-                  <button id="styleIconSizeMinus" data-tip="Multiply size by 1.1" class="whiteButton">-</button>
+                  <button id="styleIconSizePlus" data-tip="将大小乘以 1.1" class="whiteButton">+</button>
+                  <button id="styleIconSizeMinus" data-tip="将大小乘以 1.1" class="whiteButton">-</button>
                   <input id="styleIconSizeInput" type="number" min=".2" max="10" step=".02" value="1" />
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleCoastline">
-              <tr data-tip="Allow system to apply filter automatically based on zoom level">
+              <tr data-tip="允许系统根据缩放级别自动应用滤镜">
                 <td colspan="2">
                   <input id="styleCoastlineAuto" class="checkbox" type="checkbox" />
-                  <label for="styleCoastlineAuto" class="checkbox-label">Automatically change filter on zoom</label>
+                  <label for="styleCoastlineAuto" class="checkbox-label">缩放时自动更改滤镜</label>
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleTemperature">
-              <tr data-tip="Define transparency of temperature leyer. Set to 0 to make it fully transparent">
-                <td>Fill opacity</td>
+              <tr data-tip="定义温度图层的透明度。设置为 0 使其完全透明">
+                <td>填充不透明度</td>
                 <td>
                   <input id="styleTemperatureFillOpacityInput" type="range" min="0" max="1" step=".01" value=".3" />
                   <output id="styleTemperatureFillOpacityOutput">0.3</output>
                 </td>
               </tr>
 
-              <tr data-tip="Set labels size">
-                <td>Labels size</td>
+              <tr data-tip="设置标签大小">
+                <td>标签大小</td>
                 <td>
                   <input id="styleTemperatureFontSizeInput" type="range" min="0" max="30" value="8" />
                   <output id="styleTemperatureFontSizeOutput">8</output>
                 </td>
               </tr>
 
-              <tr data-tip="Set labels color">
-                <td>Labels color</td>
+              <tr data-tip="设置标签颜色">
+                <td>标签颜色</td>
                 <td>
                   <input id="styleTemperatureFillInput" type="color" />
                   <output id="styleTemperatureFillOutput">#000</output>
@@ -1354,117 +1311,96 @@
             </tbody>
 
             <tbody id="styleEmblems">
-              <tr data-tip="Set state emblems size multiplier">
-                <td>State Size</td>
+              <tr data-tip="设置国家徽章大小乘数">
+                <td>国家大小</td>
                 <td>
-                  <input
-                    id="emblemsStateSizeInput"
-                    data-stored="emblemsStateSize"
-                    type="number"
-                    min="0"
-                    max="5"
-                    step=".02"
-                    value="1"
-                  />
+                  <input id="emblemsStateSizeInput" data-stored="emblemsStateSize" type="number" min="0" max="5" step=".02"
+                    value="1" />
                 </td>
               </tr>
 
-              <tr data-tip="Set province emblems size multiplier">
-                <td>Province Size</td>
+              <tr data-tip="设置省徽章大小乘数">
+                <td>省大小</td>
                 <td>
-                  <input
-                    id="emblemsProvinceSizeInput"
-                    data-stored="emblemsProvinceSize"
-                    type="number"
-                    min="0"
-                    max="5"
-                    step=".02"
-                    value="1"
-                  />
+                  <input id="emblemsProvinceSizeInput" data-stored="emblemsProvinceSize" type="number" min="0" max="5" step=".02"
+                    value="1" />
                 </td>
               </tr>
 
-              <tr data-tip="Set burg emblems size multiplier">
-                <td>Burg Size</td>
+              <tr data-tip="设置城镇徽章大小乘数">
+                <td>Burg 大小</td>
                 <td>
-                  <input
-                    id="emblemsBurgSizeInput"
-                    data-stored="emblemsBurgSize"
-                    type="number"
-                    min="0"
-                    max="5"
-                    step=".02"
-                    value="1"
-                  />
+                  <input id="emblemsBurgSizeInput" data-stored="emblemsBurgSize" type="number" min="0" max="5" step=".02"
+                    value="1" />
                 </td>
               </tr>
 
-              <tr data-tip="Allow system to hide emblem groups if their size in too small or too big on that scale">
+              <tr data-tip="如果徽章组的尺寸在该比例上太小或太大，则允许系统隐藏徽章组">
                 <td colspan="2">
                   <input id="hideEmblems" class="checkbox" type="checkbox" onchange="invokeActiveZooming()" checked />
-                  <label for="hideEmblems" class="checkbox-label">Toggle visibility automatically</label>
+                  <label for="hideEmblems" class="checkbox-label">自动切换可见性</label>
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleFilter" style="display: block">
-              <tr data-tip="Select filter for element. Please note filters may cause performance issues!">
-                <td>Filter</td>
+              <tr data-tip="选择元素的滤镜。请注意，滤镜可能会导致性能问题！">
+                <td>滤镜</td>
                 <td><select id="styleFilterInput" /></td>
               </tr>
             </tbody>
 
             <tbody id="styleClipping">
-              <tr data-tip="Set clipping. Only non-clipped part will be visible">
-                <td>Clipping</td>
+              <tr data-tip="设置裁剪。只有未裁剪的部分可见">
+                <td>裁剪</td>
                 <td>
                   <select id="styleClippingInput">
-                    <option value="" selected>No clipping</option>
-                    <option value="url(#land)">Clip water</option>
-                    <option value="url(#water)">Clip land</option>
+                    <option value="" selected>不裁剪</option>
+                    <option value="url(#land)">裁剪水域</option>
+                    <option value="url(#water)">裁剪陆地</option>
                   </select>
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleMarkers">
-              <tr data-tip="Try to keep the same size on any map scale, turn off to get size change depending on scale">
+              <tr data-tip="尽量在任何地图比例尺上保持相同的大小，关闭则根据比例尺改变大小">
                 <td colspan="2">
                   <input id="styleRescaleMarkers" class="checkbox" type="checkbox" />
-                  <label for="styleRescaleMarkers" class="checkbox-label">Keep initial size on zoom change</label>
+                  <label for="styleRescaleMarkers" class="checkbox-label">缩放时保持初始大小</label>
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleVisibility">
-              <tr data-tip="Allow system to hide labels if their size in too small or too big on that scale">
+              <tr data-tip="允许系统隐藏标签，如果标签尺寸在该比例尺上太小或太大">
                 <td colspan="2">
                   <input id="hideLabels" class="checkbox" type="checkbox" onchange="invokeActiveZooming()" checked />
-                  <label for="hideLabels" class="checkbox-label">Toggle visibility automatically</label>
+                  <label for="hideLabels" class="checkbox-label">自动切换可见性</label>
                 </td>
               </tr>
 
-              <tr data-tip="Allow system to rescale labels on zoom">
+              <tr data-tip="允许系统在缩放时重新缩放标签">
                 <td colspan="2">
                   <input id="rescaleLabels" class="checkbox" type="checkbox" onchange="invokeActiveZooming()" checked />
-                  <label for="rescaleLabels" class="checkbox-label">Rescale on zoom</label>
+                  <label for="rescaleLabels" class="checkbox-label">缩放时重新缩放</label>
                 </td>
               </tr>
             </tbody>
 
             <tbody id="styleScaleBar">
-              <tr data-tip="Set bar and font size">
-                <td>Size</td>
+              <tr data-tip="设置栏和字体大小">
+                <td>大小</td>
                 <td>
-                  <span>Bar </span>
+                  <span>栏 </span>
                   <input id="styleScaleBarSize" type="number" min=".5" max="5" step=".1" />
-                  <span>Font </span>
+                  <span>字体 </span>
                   <input id="styleScaleBarFontSize" type="number" min="1" max="100" step=".1" />
                 </td>
               </tr>
 
-              <tr data-tip="Set position of the Scale bar bottom right corner (in percents)">
-                <td>Position</td>
+              <tr data-tip="设置比例尺右下角的位置（百分比）">
+                <td>位置</td>
                 <td>
                   <span>x </span>
                   <input id="styleScaleBarPositionX" type="number" min="0" max="100" step="0.1" style="width: 5em" />
@@ -1473,49 +1409,42 @@
                 </td>
               </tr>
 
-              <tr data-tip="Type scale bar label, leave blank to hide label">
-                <td>Label</td>
+              <tr data-tip="输入比例尺标签，留空则隐藏标签">
+                <td>标签</td>
                 <td>
                   <input id="styleScaleBarLabel" type="text" />
                 </td>
               </tr>
 
-              <tr data-tip="Set background opacity. 0: transparent, 1: solid">
-                <td>Back opacity</td>
+              <tr data-tip="设置背景不透明度。 0：透明，1：实心">
+                <td>背面不透明度</td>
                 <td>
                   <input id="styleScaleBarBackgroundOpacityInput" type="range" min="0" max="1" step="0.01" />
                   <output id="styleScaleBarBackgroundOpacityOutput"></output>
                 </td>
               </tr>
 
-              <tr data-tip="Set background fill color">
-                <td>Back fill</td>
+              <tr data-tip="设置背景填充颜色">
+                <td>背面填充</td>
                 <td>
                   <input id="styleScaleBarBackgroundFillInput" type="color" />
                   <output id="styleScaleBarBackgroundFillOutput"></output>
                 </td>
               </tr>
 
-              <tr data-tip="Set background stroke color and width">
-                <td>Back stroke</td>
+              <tr data-tip="设置背景描边颜色和宽度">
+                <td>背面描边</td>
                 <td>
                   <input id="styleScaleBarBackgroundStrokeInput" type="color" />
                   <output id="styleScaleBarBackgroundStrokeOutput"></output>
 
-                  <span>Width </span>
-                  <input
-                    id="styleScaleBarBackgroundStrokeWidth"
-                    type="number"
-                    min="0"
-                    max="10"
-                    step="0.1"
-                    style="width: 5em"
-                  />
+                  <span>宽度 </span>
+                  <input id="styleScaleBarBackgroundStrokeWidth" type="number" min="0" max="10" step="0.1" style="width: 5em" />
                 </td>
               </tr>
 
-              <tr data-tip="Set background element padding: top, right, bottom, left (in pixels)">
-                <td>Back padding</td>
+              <tr data-tip="设置背景元素内边距：顶部、右侧、底部、左侧（以像素为单位）">
+                <td>后部内边距</td>
                 <td style="display: flex; gap: 4px">
                   <input id="styleScaleBarBackgroundPaddingTop" type="number" min="0" max="100" style="width: 5em" />
                   <input id="styleScaleBarBackgroundPaddingRight" type="number" min="0" max="100" style="width: 5em" />
@@ -1524,11 +1453,11 @@
                 </td>
               </tr>
 
-              <tr data-tip="Select background filter">
-                <td>Back filter</td>
+              <tr data-tip="选择背景滤镜">
+                <td>后部滤镜</td>
                 <td><select id="styleScaleBarBackgroundFilter" /></td>
               </tr>
-            </tbody>
+              </tbody>
           </table>
 
           <div id="mapFilters" data-tip="设置要应用于地图的过滤器">
@@ -1600,11 +1529,11 @@
               </td>
             </tr>
 
-            <tr data-tip="定义当前年份和时代名称">
+            <tr data-tip="定义当前年代名称">
               <td>
                 <i data-locked="0" id="lock_era" class="icon-lock-open"></i>
               </td>
-              <td>年份和时代</td>
+              <td>年代</td>
               <td>
                 <input id="yearInput" data-stored="year" type="number" step="1" class="paired"
                   style="width: 24%; float: left; font-size: smaller" />
@@ -1631,7 +1560,7 @@
               <td>
                 <i data-locked="0" id="lock_cultures" class="icon-lock-open"></i>
               </td>
-              <td>文化数量</td>
+              <td>文明数量</td>
               <td>
                 <input id="culturesInput" data-stored="cultures" type="range" min="1" max="32" 值="14" />
               </td>
@@ -1755,14 +1684,12 @@
           </table>
 
           <p data-tip="Tool settings that don't affect maps. Changes are getting applied immediately">
-            Generator settings:
+            生成器设置：
           </p>
           <table>
-            <tr
-              data-tip="Set user interface size. Please note browser zoom also affects interface size (Ctrl + or Ctrl - to change)"
-            >
+            <tr data-tip="设置用户界面大小。请注意，浏览器缩放也会影响界面大小（Ctrl + 或 Ctrl - 进行更改）">
               <td></td>
-              <td>Interface size</td>
+              <td>界面大小</td>
               <td>
                 <input id="uiSizeInput" data-stored="uiSize" type="range" min=".6" max="3" step=".1" />
               </td>
@@ -1771,9 +1698,9 @@
               </td>
             </tr>
 
-            <tr data-tip="Set tooltip size">
+            <tr data-tip="设置工具提示大小">
               <td></td>
-              <td>Tooltip size</td>
+              <td>工具提示大小</td>
               <td>
                 <input id="tooltipSizeInput" data-stored="tooltipSize" type="range" min="4" max="32" value="14" />
               </td>
@@ -1782,11 +1709,11 @@
               </td>
             </tr>
 
-            <tr data-tip="Set theme hue for dialogs and tool windows">
+            <tr data-tip="设置对话框和工具窗口的主题色调">
               <td>
-                <i data-tip="Restore default theme color: pale magenta" id="themeColorRestore" class="icon-ccw"></i>
+                <i data-tip="恢复默认主题颜色：淡洋红色" id="themeColorRestore" class="icon-ccw"></i>
               </td>
-              <td>Theme color</td>
+              <td>主题颜色</td>
               <td>
                 <input id="themeHueInput" type="range" min="0" max="359" />
               </td>
@@ -1795,9 +1722,9 @@
               </td>
             </tr>
 
-            <tr data-tip="Set dialog and tool windows transparency">
+            <tr data-tip="设置对话框和工具窗口透明度">
               <td></td>
-              <td>Transparency</td>
+              <td>透明度</td>
               <td>
                 <input id="transparencyInput" data-stored="transparency" type="range" min="0" max="100" />
               </td>
@@ -1806,9 +1733,9 @@
               </td>
             </tr>
 
-            <tr data-tip="Set autosave interval in minutes. Set 0 to disable autosave. Map is saved to browser memory">
+            <tr data-tip="设置自动保存间隔（分钟）。设置为 0 则禁用自动保存。地图将保存到浏览器内存中">
               <td></td>
-              <td>Autosave interval</td>
+              <td>自动保存间隔</td>
               <td>
                 <input
                   id="autosaveIntervalInput"
@@ -1833,98 +1760,98 @@
               </td>
             </tr>
 
-            <tr data-tip="Set what Generator should do on load">
+            <tr data-tip="设置生成器在加载时应执行的操作">
               <td></td>
-              <td>Onload behavior</td>
+              <td>加载行为</td>
               <td>
                 <select id="onloadBehavior" data-stored="onloadBehavior">
-                  <option value="random" selected>Generate random map</option>
-                  <option value="lastSaved">Open last saved map</option>
+                  <option value="random" selected>生成随机地图</option>
+                  <option value="lastSaved">打开上次保存的地图</option>
                 </select>
               </td>
               <td></td>
             </tr>
 
-            <tr data-tip="Select speech synthesis voice to pronounce generated names">
+            <tr data-tip="选择语音合成语音来发音生成的名称">
               <td></td>
-              <td>Speaker voice</td>
+              <td>扬声器语音</td>
               <td>
                 <select id="speakerVoice" data-stored="speakerVoice"></select>
               </td>
               <td>
-                <span id="speakerTest" data-tip="Click to test the voice" style="cursor: pointer">🔊</span>
+                <span id="speakerTest" data-tip="单击以测试语音" style="cursor: pointer">🔊</span>
               </td>
             </tr>
 
-            <tr data-tip="Select emblem shape. Can be changed indivudually in Emblem editor">
+            <tr data-tip="选择徽章形状。可在徽章编辑器中单独更改">
               <td>
                 <i data-locked="0" id="lock_emblemShape" class="icon-lock"></i>
               </td>
-              <td>Emblem shape</td>
+              <td>徽章形状</td>
               <td>
                 <select id="emblemShape" data-stored="emblemShape">
-                  <optgroup label="Diversiform">
-                    <option value="culture" selected>Culture-specific</option>
-                    <option value="random">Culture-random</option>
-                    <option value="state">State-specific</option>
+                  <optgroup label="多样型">
+                    <option value="culture" selected>特定文化</option>
+                    <option value="random">随机文化</option>
+                    <option value="state">特定国家</option>
                   </optgroup>
-                  <optgroup label="Basic">
-                    <option value="heater">Heater</option>
-                    <option value="spanish">Spanish</option>
-                    <option value="french">French</option>
+                  <optgroup label="基本">
+                    <option value="heater">加热器</option>
+                    <option value="spanish">西班牙语</option>
+                    <option value="french">法语</option>
                   </optgroup>
-                  <optgroup label="Regional">
-                    <option value="horsehead">Horsehead</option>
-                    <option value="horsehead2">Horsehead Edgy</option>
-                    <option value="polish">Polish</option>
-                    <option value="hessen">Hessen</option>
-                    <option value="swiss">Swiss</option>
+                  <optgroup label="区域">
+                    <option value="horsehead">马头</option>
+                    <option value="horsehead2">马头锋利</option>
+                    <option value="polish">波兰</option>
+                    <option value="hessen">黑森</option>
+                    <option value="swiss">瑞士</option>
                   </optgroup>
-                  <optgroup label="Historical">
-                    <option value="boeotian">Boeotian</option>
-                    <option value="roman">Roman</option>
-                    <option value="kite">Kite</option>
-                    <option value="oldFrench">Old French</option>
-                    <option value="renaissance">Renaissance</option>
-                    <option value="baroque">Baroque</option>
+                  <optgroup label="你是">
+                    <option value="boeotian">波奥蒂亚</option>
+                    <option value="roman">罗马</option>
+                    <option value="kite">风筝</option>
+                    <option value="oldFrench">古法语</option>
+                    <option value="renaissance">文艺复兴</option>
+                    <option value="baroque">巴洛克</option>
                   </optgroup>
-                  <optgroup label="Specific">
-                    <option value="targe">Targe</option>
-                    <option value="targe2">Targe2</option>
-                    <option value="pavise">Pavise</option>
-                    <option value="wedged">Wedged</option>
+                  <optgroup label="具体">
+                    <option value="targe">牌照</option>
+                    <option value="targe2">牌照2</option>
+                    <option value="pavise">盾形徽章</option>
+                    <option value="wedged">楔形徽章</option>
                   </optgroup>
-                  <optgroup label="Banner">
-                    <option value="flag">Flag</option>
-                    <option value="pennon">Pennon</option>
-                    <option value="guidon">Guidon</option>
-                    <option value="banner">Banner</option>
-                    <option value="dovetail">Dovetail</option>
-                    <option value="gonfalon">Gonfalon</option>
-                    <option value="pennant">Pennant</option>
+                  <optgroup label="横幅">
+                    <option value="flag">旗帜</option>
+                    <option value="pennon">三角旗</option>
+                    <option value="guidon">三角旗</option>
+                    <option value="banner">横幅</option>
+                    <option value="dovetail">燕尾形徽章</option>
+                    <option value="gonfalon">旗杆</option>
+                    <option value="pennant">三角旗</option>
                   </optgroup>
-                  <optgroup label="Simple">
-                    <option value="round">Round</option>
-                    <option value="oval">Oval</option>
-                    <option value="vesicaPiscis">Vesica Piscis</option>
-                    <option value="square">Square</option>
-                    <option value="diamond">Diamond</option>
+                  <optgroup label="简单">
+                    <option value="round">​​圆形徽章</option>
+                    <option value="oval">椭圆形徽章</option>
+                    <option value="vesicaPiscis">双鱼座徽章</option>
+                    <option value="square">正方形徽章</option>
+                    <option value="diamond">钻石</option>
                   </optgroup>
-                  <optgroup label="Fantasy">
-                    <option value="fantasy1">Fantasy1</option>
-                    <option value="fantasy2">Fantasy2</option>
-                    <option value="fantasy3">Fantasy3</option>
-                    <option value="fantasy4">Fantasy4</option>
-                    <option value="fantasy5">Fantasy5</option>
+                  <optgroup label="幻想">
+                    <option value="fantasy1">幻想1</option>
+                    <option value="fantasy2">幻想2</option>
+                    <option value="fantasy3">幻想3</option>
+                    <option value="fantasy4">幻想4</option>
+                    <option value="fantasy5">幻想5</option>
                   </optgroup>
-                  <optgroup label="Middle Earth">
-                    <option value="noldor">Noldor</option>
-                    <option value="gondor">Gondor</option>
-                    <option value="easterling">Easterling</option>
-                    <option value="erebor">Erebor</option>
-                    <option value="ironHills">Iron Hills</option>
-                    <option value="urukHai">UrukHai</option>
-                    <option value="moriaOrc">Moria Orc</option>
+                  <optgroup label="中士">
+                    <option value="noldor">诺多族</option>
+                    <option value="gondor">刚铎族</option>
+                    <option value="easterling">伊斯特林族</option>
+                    <option value="erebor">孤山族</option>
+                    <option value="ironHills">铁丘陵</option>
+                    <option value="urukHai">乌鲁克海族</option>
+                    <option value="moriaOrc">莫里亚兽人</option>
                   </optgroup>
                 </select>
               </td>
@@ -1933,65 +1860,42 @@
               </td>
             </tr>
 
-            <tr data-tip="Set minimum and maximum possible zoom level">
+            <tr data-tip="设置最小和最大可能的缩放级别">
               <td>
-                <i data-tip="Restore default zoom extent: [1, 20]" id="zoomExtentDefault" class="icon-ccw"></i>
+                <i data-tip="恢复默认缩放范围：[1, 20]" id="zoomExtentDefault" class="icon-ccw"></i>
               </td>
-              <td>Zoom extent</td>
+              <td>缩放范围</td>
               <td>
-                <span data-tip="Mimimal possible zoom level (should be > 0)">min</span>
-                <input
-                  data-tip="Mimimal possible zoom level (should be > 0)"
-                  id="zoomExtentMin"
-                  class="paired"
-                  type="number"
-                  min=".2"
-                  step=".1"
-                  max="20"
-                  value="1"
-                />
-                <span data-tip="Maximal possible zoom level (should be > 1)">max</span>
-                <input
-                  data-tip="Maximal possible zoom level (should be > 1)"
-                  id="zoomExtentMax"
-                  class="paired"
-                  type="number"
-                  min="1"
-                  max="50"
-                  value="20"
-                />
+                <span data-tip="最小可能的缩放级别（应大于0）">min</span>
+                <input data-tip="最小可能的缩放级别（应大于0）" id="zoomExtentMin" class="paired" type="number" min=".2" step=".1" max="20"
+                  value="1" />
+                <span data-tip="最大可能的缩放级别（应大于1）">max</span>
+                <input data-tip="最大可能的缩放级别（应大于1）" id="zoomExtentMax" class="paired" type="number" min="1" max="50" value="20" />
               </td>
               <td>
-                <i
-                  data-tip="Allow to drag map beyond canvas borders"
-                  id="translateExtent"
-                  data-on="0"
-                  class="icon-hand-paper-o"
-                ></i>
+                <i data-tip="允许将地图拖出画布边界" id="translateExtent" data-on="0" class="icon-hand-paper-o"></i>
               </td>
             </tr>
 
-            <tr data-tip="Select rendering model. Try to set to 'optimized' if you face performance issues">
+            <tr data-tip="选择渲染模型。如果遇到性能问题，请尝试设置为“优化”">
               <td></td>
-              <td>Rendering</td>
+              <td>渲染</td>
               <td>
                 <select id="shapeRendering" data-stored="shapeRendering">
-                  <option value="geometricPrecision">Best quality</option>
-                  <option value="optimizeSpeed" selected>Best performance</option>
+                  <option value="geometricPrecision">最佳质量</option>
+                  <option value="optimizeSpeed" selected>最佳性能</option>
                 </select>
               </td>
               <td></td>
             </tr>
 
-            <tr
-              data-tip="Load Google Translate and select language. Note that automatic translation can break some page functional. In this case reset the language back to English or refresh the page"
-            >
+            <tr data-tip="加载 Google 翻译并选择语言。请注意，自动翻译可能会破坏某些页面功能。在这种情况下，请将语言重置回英语或刷新页面">
               <td>
-                <i data-tip="Reset language to English" id="resetLanguage" class="icon-ccw"></i>
+                <i data-tip="将语言重置为英语" id="resetLanguage" class="icon-ccw"></i>
               </td>
-              <td>Language</td>
+              <td>语言</td>
               <td>
-                <button id="loadGoogleTranslateButton">Init Google Translate</button>
+                <button id="loadGoogleTranslateButton">初始化 Google 翻译</button>
                 <div id="google_translate_element"></div>
               </td>
               <td></td>
@@ -1999,19 +1903,11 @@
           </table>
 
           <div>
-            <button
-              id="configureWorld"
-              data-tip="Click to open world configurator to setup map position on Globe and World climate"
-              onclick="editWorld()"
-            >
-              Configure World
+            <button id="configureWorld" data-tip="单击打开世界配置器以设置地球仪上的地图位置和世界气候" onclick="editWorld()">
+              配置世界
             </button>
-            <button
-              id="optionsReset"
-              data-tip="Click to restore default options (page will be reloaded)"
-              onclick="restoreDefaultOptions()"
-            >
-              Reset to defaults
+            <button id="optionsReset" data-tip="单击恢复默认选项（页面将重新加载）" onclick="restoreDefaultOptions()">
+              重置为默认值
             </button>
           </div>
         </div>
