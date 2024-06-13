@@ -15,7 +15,7 @@ const version = "1.97.11"; // generator version, update each time
   if (isOutdated) clearCache();
 
   const showUpdate = storedVersion < versionNumber;
-  if (showUpdate) setTimeout(showUpdateWindow, 6000);
+  // if (showUpdate) setTimeout(showUpdateWindow, 6000);
 
   function showUpdateWindow() {
     const changelog = "https://github.com/Azgaar/Fantasy-Map-Generator/wiki/Changelog";
