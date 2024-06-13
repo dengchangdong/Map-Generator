@@ -10,7 +10,7 @@ export function init(event) {
   deferredPrompt = event;
 
   window.addEventListener("appinstalled", () => {
-    tip("Application is installed", false, "success", 8000);
+    tip("应用已安装", false, "success", 8000);
     cleanup();
   });
 }
@@ -25,20 +25,20 @@ function createButton() {
       width: auto;
     `;
   button.className = "options glow";
-  button.innerHTML = "Install";
+  button.innerHTML = "安装";
   button.onclick = openDialog;
-  button.onmouseenter = () => tip("Install the Application");
+  button.onmouseenter = () => tip("安装应用程序");
   document.getElementById("optionsContainer").appendChild(button);
   return button;
 }
 
 function openDialog() {
-  alertMessage.innerHTML = /* html */ `You can install the tool so that it will look and feel like desktop application:
-    have its own icon on your home screen and work offline with some limitations
+  alertMessage.innerHTML = /* html */ `您可以安装该工具，使其外观和感觉像桌面应用程序：
+    在桌面上添加虚拟地图生成器快捷图标，可以离线工作，但有一些限制。
   `;
   $("#alert").dialog({
     resizable: false,
-    title: "Install the Application",
+    title: "安装应用程序",
     width: "38em",
     buttons: {
       Install: function () {
@@ -51,7 +51,7 @@ function openDialog() {
     },
     open: function () {
       const checkbox =
-        '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>do not ask again</i></label><span>';
+        '<span><input id="dontAsk" class="checkbox" type="checkbox"><label for="dontAsk" class="checkbox-label dontAsk"><i>不再询问</i></label><span>';
       const pane = this.parentElement.querySelector(".ui-dialog-buttonpane");
       pane.insertAdjacentHTML("afterbegin", checkbox);
     },
