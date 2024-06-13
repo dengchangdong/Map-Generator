@@ -41,11 +41,11 @@ function openDialog() {
     title: "安装应用程序",
     width: "38em",
     buttons: {
-      Install: function () {
+      安装: function () {
         $(this).dialog("close");
         deferredPrompt.prompt();
       },
-      Cancel: function () {
+      取消: function () {
         $(this).dialog("close");
       }
     },
