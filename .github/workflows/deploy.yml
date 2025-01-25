@@ -14,7 +14,7 @@ jobs:
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GHPAGES_TOKEN }}
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           cname: map.editor.dengchangdong.com
           full_commit_message: Update ${{ env.DATE }}
